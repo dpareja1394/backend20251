@@ -1,5 +1,5 @@
 create user inmouser with encrypted password '123456';
-create database inmodb with owner vuelosuser;
+create database inmodb with owner inmouser;
 
 create user {nombre_usuario} with encrypted password '{contraseña}';
 create database {nombre_db} with owner {nombre_usuario};
