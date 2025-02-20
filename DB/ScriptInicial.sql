@@ -1,7 +1,7 @@
 -- Tabla id Estado Contrato
 CREATE TABLE Estados_Contrato (
     id_estado_contrato SERIAL PRIMARY KEY,
-    nombre NOT NULL VARCHAR (30),
+    nombre VARCHAR (30) NOT NULL,
     descripcion VARCHAR (50)
 );
 
