@@ -1,9 +1,9 @@
 -- Tabla id Estado Contrato
-CREATE TABLE Estados_Contrato {
+CREATE TABLE Estados_Contrato (
     id_estado_contrato SERIAL PRIMARY KEY,
     nombre NOT NULL VARCHAR (30),
     descripcion VARCHAR (50)
-};
+);
 
 -- Tabla id Tipo Propiedad
 CREATE TABLE Tipos_Propiedad (
