@@ -37,7 +37,7 @@ CREATE TABLE Propiedades (
     id_propietario INT REFERENCES Personas(id_persona), -- Referencia a Personas
     id_asesor INT REFERENCES Personas(id_persona), -- Referencia a Personas
     id_tipo_propiedad INT REFERENCES Tipos_Propiedad(id_tipo_propiedad),-- Referencia a Personas
-    id_estado_propiedad INT REFERENCES Estados_Propiedad(id_estado_propiedad)-- Referencia a EstadoPropiedad
+    id_estado_propiedad INT REFERENCES Estados_Propiedad(id_estado_propiedad),-- Referencia a EstadoPropiedad
     direccion VARCHAR(200) NOT NULL,
     ciudad VARCHAR(100) NOT NULL,
     codigo_postal VARCHAR(10) NOT NULL,
