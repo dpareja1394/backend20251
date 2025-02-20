@@ -1,0 +1,20 @@
+# Trabajaremos con la versión 3 docker
+version: "3"
+
+# Creamos los servicios
+services:
+  inmobiliariausb: # Creamos el servicios mydb para identificar la imagen
+    image: postgres:12.6 # Usamos la imagen postgresql en la versión 12
+    container_name: inmobiliariausbcontainer # Poner el nombre del contenedor
+    volumes:
+      - inmobiliariausb:/var/lib/postgresql # Crearemos un volumen para almacenar los datos de la db
+    ports:
+      - "5432:5432" # Habilitamos el puerto 5432 para acceder a la db
+    environment: # Creamos las variables del usuario contraseña y base de datos
+      POSTGRES_USER: inmouser #   que se crea cuando inicia docker
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: inmodb
+
+volumes: # Creamos y asignamos el volumen de docker
+  inmobiliariausb:
+    driver: local
