@@ -16,7 +16,7 @@ public class EstadoPropiedad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tipo_propiedad")
+    @Column(name = "id_estado_propiedad")
     private Integer idEstadoPropiedad;
 
     @Column(name = "nombre", nullable = false, length = 30)
