@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Data
@@ -39,7 +40,7 @@ public class Propiedad {
     private Integer banos;
 
     @Column(precision = 12, scale = 2)
-    private Double precio;
+    private BigDecimal precio;
 
     @Column(name = "fecha_creacion")
     private Timestamp fechaCreacion;
