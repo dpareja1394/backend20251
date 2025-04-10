@@ -1,5 +1,7 @@
 package co.edu.usbcali.inmobiliaria.service.impl;
 
+import co.edu.usbcali.inmobiliaria.dto.TipoPropiedadDTO;
+import co.edu.usbcali.inmobiliaria.mapper.TipoPropiedadMapper;
 import co.edu.usbcali.inmobiliaria.model.TipoPropiedad;
 import co.edu.usbcali.inmobiliaria.repository.TipoPropiedadRepository;
 import co.edu.usbcali.inmobiliaria.service.TipoPropiedadService;
@@ -25,6 +27,13 @@ public class TipoPropiedadServiceImpl implements TipoPropiedadService{
 
         // Retorno los tipos de propiedad consultados en la línea anterior
         return tiposPropiedad;
+    }
+
+    @Override
+    public TipoPropiedadDTO getTipoPropiedadPorId(Integer id) {
+        return TipoPropiedadMapper.modelToDTO(
+                tipoPropiedadRepository.getReferenceById(id)
+        );
     }
 
 
