@@ -27,13 +27,8 @@ public class EstadoPropiedadController {
 
     @GetMapping("/buscar-por-id/{id}")
     public ResponseEntity<EstadoPropiedadDTO> buscarPorId(@PathVariable Integer id) {
-        EstadoPropiedad estadoPropiedad = estadoPropiedadService.getEstadoPropiedadPorId(id);
-
-        EstadoPropiedadDTO estadoPropiedadDTO = EstadoPropiedadDTO.builder()
-                .idEstadoPropiedad(estadoPropiedad.getIdEstadoPropiedad())
-                .nombre(estadoPropiedad.getNombre())
-                .descripcion(estadoPropiedad.getDescripcion())
-                .build();
+        EstadoPropiedadDTO estadoPropiedadDTO =
+                estadoPropiedadService.getEstadoPropiedadPorId(id);
 
         return new ResponseEntity<>(estadoPropiedadDTO, HttpStatus.OK);
     }
