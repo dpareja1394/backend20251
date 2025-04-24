@@ -19,4 +19,16 @@ public class PersonaMapper {
                 .build();
     }
 
+    public static Persona dtoToModel(PersonaDTO personaDTO) {
+        return Persona.builder()
+                .nombre(personaDTO.getNombre())
+                .apellido(personaDTO.getApellido())
+                .telefono(personaDTO.getTelefono())
+                .email(personaDTO.getEmail())
+                .direccion(personaDTO.getDireccion())
+                .ciudad(personaDTO.getCiudad())
+                .codigoPostal(personaDTO.getCodigoPostal())
+                .build();
+    }
+
 }

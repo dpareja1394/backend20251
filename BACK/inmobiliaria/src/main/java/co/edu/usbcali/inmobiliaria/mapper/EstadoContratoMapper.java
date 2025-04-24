@@ -12,4 +12,11 @@ public class EstadoContratoMapper {
                 .build();
     }
 
+    public static EstadoContrato dtoToModel(EstadoContratoDTO estadoContratoDTO) {
+        return EstadoContrato.builder()
+                .nombre(estadoContratoDTO.getNombre())
+                .descripcion(estadoContratoDTO.getDescripcion())
+                .build();
+    }
+
 }

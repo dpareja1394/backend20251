@@ -20,4 +20,11 @@ public class EstadoPropiedadMapper {
                 .build();
     }
 
+    public static EstadoPropiedad dtoToModel(EstadoPropiedadDTO estadoPropiedadDTO) {
+        return EstadoPropiedad.builder()
+                .nombre(estadoPropiedadDTO.getNombre())
+                .descripcion(estadoPropiedadDTO.getDescripcion())
+                .build();
+    }
+
 }

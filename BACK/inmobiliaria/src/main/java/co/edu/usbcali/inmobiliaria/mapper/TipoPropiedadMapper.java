@@ -12,4 +12,11 @@ public class TipoPropiedadMapper {
                 .build();
     }
 
+    public static TipoPropiedad dtoToModel(TipoPropiedadDTO tipoPropiedadDTO) {
+        return TipoPropiedad.builder()
+                .nombre(tipoPropiedadDTO.getNombre())
+                .descripcion(tipoPropiedadDTO.getDescripcion())
+                .build();
+    }
+
 }
