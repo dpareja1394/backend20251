@@ -7,4 +7,5 @@ import java.util.List;
 public interface TipoPropiedadService {
     List<TipoPropiedad> getAllTiposPropiedad();
     TipoPropiedadDTO getTipoPropiedadPorId(Integer id);
+    TipoPropiedadDTO saveTipoPropiedad(TipoPropiedadDTO tipoPropiedadDTO) throws Exception;
 }

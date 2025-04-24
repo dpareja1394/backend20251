@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TipoPropiedadServiceImpl implements TipoPropiedadService{
+public class TipoPropiedadServiceImpl implements TipoPropiedadService {
 
     private final TipoPropiedadRepository tipoPropiedadRepository;
 
@@ -34,6 +34,40 @@ public class TipoPropiedadServiceImpl implements TipoPropiedadService{
         return TipoPropiedadMapper.modelToDTO(
                 tipoPropiedadRepository.getReferenceById(id)
         );
+    }
+
+    @Override
+    public TipoPropiedadDTO saveTipoPropiedad(TipoPropiedadDTO tipoPropiedadDTO) throws Exception {
+        // Poner validaciones lógicas respecto al DTO del Tipo de Propiedad
+
+        // Validar que el tipo de propiedad no sea nulo
+        if (tipoPropiedadDTO == null) {
+            throw new Exception("El tipo de propiedad a guardar no puede ser nulo");
+        }
+
+        // Validar que el nombre no sea nulo
+        if (tipoPropiedadDTO.getNombre() == null ||
+                tipoPropiedadDTO.getNombre().isBlank() == true) {
+            throw new Exception("El nombre del tipo de propiedad no puede ser nulo o vacío");
+        }
+
+        // Validar que la descripción del tipo de propiedad a agregar no sea nula ni vacía
+        if (tipoPropiedadDTO.getDescripcion() == null
+        || tipoPropiedadDTO.getDescripcion().isBlank() == true) {
+            throw new Exception("La descripción del tipo de propiedad no puede ser nula o vacía");
+        }
+
+        // Convertir de DTO a Model
+        TipoPropiedad tipoPropiedad = TipoPropiedadMapper.dtoToModel(tipoPropiedadDTO);
+
+        // Persistir el modelo en base de datos
+        tipoPropiedad = tipoPropiedadRepository.save(tipoPropiedad);
+
+        // Convertir a DTO para retornar
+        TipoPropiedadDTO tipoPropiedadDTOPersistido = TipoPropiedadMapper.modelToDTO(tipoPropiedad);
+
+        // Retornar el DTO persistido como lo solicita el métdodo
+        return tipoPropiedadDTOPersistido;
     }
 
 
