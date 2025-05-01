@@ -1,6 +1,8 @@
 package co.edu.usbcali.inmobiliaria.service.impl;
 
 import co.edu.usbcali.inmobiliaria.dto.TipoPropiedadDTO;
+import co.edu.usbcali.inmobiliaria.dto.request.CreateTipoPropiedadRequest;
+import co.edu.usbcali.inmobiliaria.dto.response.CreateTipoPropiedadResponse;
 import co.edu.usbcali.inmobiliaria.mapper.TipoPropiedadMapper;
 import co.edu.usbcali.inmobiliaria.model.TipoPropiedad;
 import co.edu.usbcali.inmobiliaria.repository.TipoPropiedadRepository;
@@ -37,37 +39,37 @@ public class TipoPropiedadServiceImpl implements TipoPropiedadService {
     }
 
     @Override
-    public TipoPropiedadDTO saveTipoPropiedad(TipoPropiedadDTO tipoPropiedadDTO) throws Exception {
+    public CreateTipoPropiedadResponse createTipoPropiedad(CreateTipoPropiedadRequest createTipoPropiedadRequest) throws Exception {
         // Poner validaciones lógicas respecto al DTO del Tipo de Propiedad
 
         // Validar que el tipo de propiedad no sea nulo
-        if (tipoPropiedadDTO == null) {
+        if (createTipoPropiedadRequest == null) {
             throw new Exception("El tipo de propiedad a guardar no puede ser nulo");
         }
 
         // Validar que el nombre no sea nulo
-        if (tipoPropiedadDTO.getNombre() == null ||
-                tipoPropiedadDTO.getNombre().isBlank() == true) {
+        if (createTipoPropiedadRequest.getNombre() == null ||
+                createTipoPropiedadRequest.getNombre().isBlank() == true) {
             throw new Exception("El nombre del tipo de propiedad no puede ser nulo o vacío");
         }
 
         // Validar que la descripción del tipo de propiedad a agregar no sea nula ni vacía
-        if (tipoPropiedadDTO.getDescripcion() == null
-        || tipoPropiedadDTO.getDescripcion().isBlank() == true) {
+        if (createTipoPropiedadRequest.getDescripcion() == null
+        || createTipoPropiedadRequest.getDescripcion().isBlank() == true) {
             throw new Exception("La descripción del tipo de propiedad no puede ser nula o vacía");
         }
 
-        // Convertir de DTO a Model
-        TipoPropiedad tipoPropiedad = TipoPropiedadMapper.dtoToModel(tipoPropiedadDTO);
+        // Convertir de Request a Model
+        TipoPropiedad tipoPropiedad = TipoPropiedadMapper.createRequestToModel(createTipoPropiedadRequest);
 
         // Persistir el modelo en base de datos
         tipoPropiedad = tipoPropiedadRepository.save(tipoPropiedad);
 
-        // Convertir a DTO para retornar
-        TipoPropiedadDTO tipoPropiedadDTOPersistido = TipoPropiedadMapper.modelToDTO(tipoPropiedad);
+        // Convertir a Response para retornar
+        CreateTipoPropiedadResponse createTipoPropiedadResponse = TipoPropiedadMapper.modelToCreateResponse(tipoPropiedad);
 
-        // Retornar el DTO persistido como lo solicita el métdodo
-        return tipoPropiedadDTOPersistido;
+        // Retornar el Response persistido como lo solicita el métdodo
+        return createTipoPropiedadResponse;
     }
 
 
