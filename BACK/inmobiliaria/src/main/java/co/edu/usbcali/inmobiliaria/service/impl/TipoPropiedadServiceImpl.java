@@ -39,7 +39,8 @@ public class TipoPropiedadServiceImpl implements TipoPropiedadService {
     }
 
     @Override
-    public CreateTipoPropiedadResponse createTipoPropiedad(CreateTipoPropiedadRequest createTipoPropiedadRequest) throws Exception {
+    public CreateTipoPropiedadResponse createTipoPropiedad(
+            CreateTipoPropiedadRequest createTipoPropiedadRequest) throws Exception {
         // Poner validaciones lógicas respecto al DTO del Tipo de Propiedad
 
         // Validar que el tipo de propiedad no sea nulo
@@ -60,17 +61,17 @@ public class TipoPropiedadServiceImpl implements TipoPropiedadService {
         }
 
         // Convertir de Request a Model
-        TipoPropiedad tipoPropiedad = TipoPropiedadMapper.createRequestToModel(createTipoPropiedadRequest);
+        TipoPropiedad tipoPropiedad = TipoPropiedadMapper
+                .createRequestToModel(createTipoPropiedadRequest);
 
         // Persistir el modelo en base de datos
         tipoPropiedad = tipoPropiedadRepository.save(tipoPropiedad);
 
         // Convertir a Response para retornar
-        CreateTipoPropiedadResponse createTipoPropiedadResponse = TipoPropiedadMapper.modelToCreateResponse(tipoPropiedad);
+        CreateTipoPropiedadResponse createTipoPropiedadResponse =
+                TipoPropiedadMapper.modelToCreateResponse(tipoPropiedad);
 
         // Retornar el Response persistido como lo solicita el métdodo
         return createTipoPropiedadResponse;
     }
-
-
 }
