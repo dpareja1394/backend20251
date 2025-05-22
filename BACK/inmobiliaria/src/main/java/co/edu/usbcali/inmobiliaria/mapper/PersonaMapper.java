@@ -1,10 +1,7 @@
 package co.edu.usbcali.inmobiliaria.mapper;
 
-import co.edu.usbcali.inmobiliaria.dto.EstadoPropiedadDTO;
-import co.edu.usbcali.inmobiliaria.dto.PersonaDTO;
 import co.edu.usbcali.inmobiliaria.dto.request.CreatePersonaRequest;
 import co.edu.usbcali.inmobiliaria.dto.response.CreatePersonaResponse;
-import co.edu.usbcali.inmobiliaria.model.EstadoPropiedad;
 import co.edu.usbcali.inmobiliaria.model.Persona;
 
 public class PersonaMapper {
