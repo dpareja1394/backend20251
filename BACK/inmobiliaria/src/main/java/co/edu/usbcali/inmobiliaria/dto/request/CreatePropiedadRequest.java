@@ -1,13 +1,14 @@
 package co.edu.usbcali.inmobiliaria.dto.request;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 @Data
 @Builder
@@ -38,4 +39,5 @@ public class CreatePropiedadRequest {
 
     @JsonProperty("id_estado_propiedad")
     private Integer idEstadoPropiedad;
+
 }
